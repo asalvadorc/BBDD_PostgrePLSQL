@@ -1,0 +1,35 @@
+site_url : https://asalvadorc.github.io/BBDD_POSTGREPLSQL
+site_name: BD - Bases de Dades
+theme: 
+  name: readthedocs
+  logo: assets/logocaminas.png
+
+extra_css:
+  - css/extra.css
+  - img/favicon.ico 
+
+markdown_extensions:
+  - admonition
+  - pymdownx.emoji
+  - pymdownx.extra
+  - pymdownx.superfences
+  - tables    
+  - attr_list
+  - toc 
+
+nav:
+  
+  - Programació en PostgreSQL:
+    - Objectius: objectius_i_coneixements_previs.md
+    - Nota inicial: 0_nota_inicial.md
+    - 1. Introducció: 1_introducci.md
+    - 2. PL/pgSQL: 2_plpgsql.md
+    - 3. Declaració de variables: 3_declaraci_de_variables.md
+    - 4. Instruccions: 4_instruccions.md
+    - 5. Funcions: 5_funcions.md
+    - 6. Utilització de cursors: 6_utilitzaci_de_cursors.md
+    - 7. Missatges: 7_missatges_i_excepcions.md
+    - 8. Triggers: 8_triggers.md
+    - 9. Creació d'altres objectes basats en funcions: 9_creaci_daltres_objectes_basats_en_funcions.md
+    - Exercicis de tot el tema: exercicis_de_tot_el_tema.md
+  
