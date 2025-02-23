@@ -1,4 +1,4 @@
-# 0. Nota inicial
+# 0. DDL, DML de la BD per als exercicis.
 
 En aquest tema també construirem molts objectes, per tant podem "boicotejar-
 nos" entre nosaltres si utilitzem tots el mateix usuari.
@@ -35,8 +35,7 @@ Ací teniu les sentències de creació dels objectes que us faran falta:
       CREATE TABLE public.comarques (
         nom_c varchar(50) NOT NULL,
         provincia varchar(25) NULL,
-        CONSTRAINT cp_com PRIMARY KEY (nom_c)
-      );
+        CONSTRAINT cp_com PRIMARY KEY (nom_c));
 
 * Creació de la taula **POBLACIONS**:    
 >
@@ -51,8 +50,7 @@ Ací teniu les sentències de creació dels objectes que us faran falta:
       llengua bpchar(1) NULL,
       nom_c varchar(50) NULL,
       CONSTRAINT cp_pobl PRIMARY KEY (cod_m),
-      CONSTRAINT ce_pob_com FOREIGN KEY (nom_c) REFERENCES public.comarques(nom_c) ON UPDATE CASCADE
-    );
+      CONSTRAINT ce_pob_com FOREIGN KEY (nom_c) REFERENCES public.comarques(nom_c) ON UPDATE CASCADE);
 
 * Creació de la taula **INSTITUTS**:    
 >
@@ -64,8 +62,7 @@ Ací teniu les sentències de creació dels objectes que us faran falta:
         codpostal numeric(5) NULL,
         cod_m numeric(5) NULL,
         CONSTRAINT cp_ins PRIMARY KEY (codi),
-        CONSTRAINT ce_ins_pob FOREIGN KEY (cod_m) REFERENCES public.poblacions(cod_m)
-      );
+        CONSTRAINT ce_ins_pob FOREIGN KEY (cod_m) REFERENCES public.poblacions(cod_m));
      
 
 * Inserció de dades en la taula **COMARQUES**:  
@@ -83,44 +80,42 @@ Ací teniu les sentències de creació dels objectes que us faran falta:
 * Creació de la taula **PROVINCIES**:
 
 >
-
-    CREATE TABLE PROVINCIES AS  
-    SELECT provincia, SUM(poblacio) AS habitants, SUM(Q) AS instituts  
-      FROM (COMARQUES INNER JOIN POBLACIONS ON COMARQUES.nom_c=POBLACIONS.nom_c)  
-        LEFT JOIN (SELECT cod_m, count(*) AS Q  
-                    FROM INSTITUTS  
-                    GROUP BY cod_m) I ON POBLACIONS.cod_m=I.cod_m  
-      GROUP BY provincia;
+      CREATE TABLE PROVINCIES AS  
+      SELECT provincia, SUM(poblacio) AS habitants, SUM(Q) AS instituts  
+        FROM (COMARQUES INNER JOIN POBLACIONS ON COMARQUES.nom_c=POBLACIONS.nom_c)  
+          LEFT JOIN (SELECT cod_m, count(*) AS Q  
+                      FROM INSTITUTS  
+                      GROUP BY cod_m) I ON POBLACIONS.cod_m=I.cod_m  
+        GROUP BY provincia;
 
 * Creació dels dominis **hemi_lat** , **graus_lat** , i **min_seg** :
 
 >
-
-    CREATE DOMAIN hemi_lat AS char(1)  
-      CHECK (VALUE IN ('N','S'));  
-      
-    CREATE DOMAIN graus_lat AS numeric(2)  
-      CHECK (VALUE BETWEEN 0 AND 90);  
-      
-    CREATE DOMAIN min_seg AS numeric(2)  
-      CHECK (VALUE BETWEEN 0 AND 59);
+      CREATE DOMAIN hemi_lat AS char(1)  
+        CHECK (VALUE IN ('N','S'));  
+>        
+      CREATE DOMAIN graus_lat AS numeric(2)  
+        CHECK (VALUE BETWEEN 0 AND 90);  
+>        
+      CREATE DOMAIN min_seg AS numeric(2)  
+        CHECK (VALUE BETWEEN 0 AND 59);
 
 * Creació del tipus **lat** :
 
 >
-    CREATE TYPE lat AS (  
-      h hemi_lat,  
-      g graus_lat,  
-      m min_seg,  
-      s min_seg );
+      CREATE TYPE lat AS (  
+        h hemi_lat,  
+        g graus_lat,  
+        m min_seg,  
+        s min_seg );
 
 * Creació de la taula **POBLACIONS3** :
 
 >
-    CREATE TABLE POBLACIONS3 (  
-      nom VARCHAR(50) CONSTRAINT cp_pob3 PRIMARY KEY,  
-      latitud lat,  
-      comarca varchar(50) );
+      CREATE TABLE POBLACIONS3 (  
+        nom VARCHAR(50) CONSTRAINT cp_pob3 PRIMARY KEY,  
+        latitud lat,  
+        comarca varchar(50) );
 
 
 

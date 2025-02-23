@@ -21,7 +21,7 @@ nav:
   
   - Programació en PostgreSQL:
     - Objectius: objectius_i_coneixements_previs.md
-    - Nota inicial: 0_nota_inicial.md
+    - 0. DDL, DML de la BD per als exercicis: 0_nota_inicial.md
     - 1. Introducció: 1_introducci.md
     - 2. PL/pgSQL: 2_plpgsql.md
     - 3. Declaració de variables: 3_declaraci_de_variables.md
