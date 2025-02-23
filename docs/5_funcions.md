@@ -174,9 +174,9 @@ Ens eixirà aquest resultat en la pestanya de Output:
 
 ![](T7_5_1.png)
 
-Una variant seria traure els números del1 al 10 i el seu doble. Observeu com
-posem 2 vegades **%** , i després posem 2 coses a mostrar, separades per
-comes: **i , i*2**
+Una variant seria traure els números del 1 al 10 i el seu doble. Observeu com
+posem 2 vegades **%**, i després posem 2 coses a mostrar, separades per
+comes: **i, i*2**
 
     
     

@@ -19,14 +19,66 @@ vostre NIF. La connexió serà per tant:
 
     Base de Dades: **geo_grup_9999x** (el mateix d'abans)
 
+<!--
 En la Base de Dades **geo_grup_9999x** ja teniu les taules de prova que estem
 utilitzant: **COMARQUES** , **POBLACIONS** i **INSTITUTS**.
 
 Per a poder desenvolupar correctament el tema, us faran falta alguns altres
 objectes creats en el tema anterior, però observeu com ara no interferireu
 entre vosaltres.
+-->
 
 Ací teniu les sentències de creació dels objectes que us faran falta:
+
+* Creació de la taula **COMARQUES**:
+>
+      CREATE TABLE public.comarques (
+        nom_c varchar(50) NOT NULL,
+        provincia varchar(25) NULL,
+        CONSTRAINT cp_com PRIMARY KEY (nom_c)
+      );
+
+* Creació de la taula **POBLACIONS**:    
+>
+    CREATE TABLE public.poblacions (
+      cod_m numeric(5) NOT NULL,
+      nom varchar(50) NOT NULL,
+      poblacio numeric(6) NULL,
+      extensio numeric(6, 2) NULL,
+      altura numeric(4) NULL,
+      longitud varchar(50) NULL,
+      latitud varchar(50) NULL,
+      llengua bpchar(1) NULL,
+      nom_c varchar(50) NULL,
+      CONSTRAINT cp_pobl PRIMARY KEY (cod_m),
+      CONSTRAINT ce_pob_com FOREIGN KEY (nom_c) REFERENCES public.comarques(nom_c) ON UPDATE CASCADE
+    );
+
+* Creació de la taula **INSTITUTS**:    
+>
+      CREATE TABLE public.instituts (
+        codi varchar(8) NOT NULL,
+        nom varchar(60) NULL,
+        adreca varchar(100) NULL,
+        numero varchar(5) NULL,
+        codpostal numeric(5) NULL,
+        cod_m numeric(5) NULL,
+        CONSTRAINT cp_ins PRIMARY KEY (codi),
+        CONSTRAINT ce_ins_pob FOREIGN KEY (cod_m) REFERENCES public.poblacions(cod_m)
+      );
+     
+
+* Inserció de dades en la taula **COMARQUES**:  
+>    
+   [COMARQUES.sql](dades comarques.sql)    
+              
+* Inserció de dades en la taula **POBLACIONS**:  
+>
+   [POBLACIONS.sql](dades poblacions.sql) 
+
+* Inserció de dades en la taula **INSTITUTS**:  
+>
+   [INSTITUTS.sql](dades instituts.sql) 
 
 * Creació de la taula **PROVINCIES**:
 
