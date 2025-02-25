@@ -55,9 +55,8 @@ de cursors:
 
     DECLARE  
         cur1 refcursor;  
-        curr2 CURSOR FOR SELECT nom,altura FROM POBLACIONS;  
-        cur3 CURSOR(p1 varchar) FOR  
-            SELECT nom,altura FROM POBLACIONS WHERE nom=p1;
+        cur2 CURSOR FOR SELECT nom,altura FROM POBLACIONS;  
+        cur3 CURSOR(p1 varchar) FOR SELECT nom,altura FROM POBLACIONS WHERE nom=p1;
 
 La manera d'obrir-lo depèn de la manera com s'havia declarat. Si només s'havia
 posat _**refcursor**_ s'haurà de col·locar la consulta. Si tenia paràmetres
