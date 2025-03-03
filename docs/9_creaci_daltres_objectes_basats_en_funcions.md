@@ -479,7 +479,7 @@ el tipus implicat:
     
     DROP AGGREGATE MAX (lat);
 
-#### :pencil2:  Exercicis
+## :pencil2:  Exercicis
 
 En la Base de Dades **geo_grup_9999x** :  
   

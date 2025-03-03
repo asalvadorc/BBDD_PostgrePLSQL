@@ -97,13 +97,15 @@ a això
 
 **Ex_17** - Crear la funció d'agregat **MIN** per al tipus de dades **lat**.
 
-**Ex_18** - **VOLUNTARI**. Fes una funció en PL/pgSQL anomenada
+
+<!--
+**Ex_18** - Fes una funció en PL/pgSQL anomenada
 **DENSITAT_CENTRES** que donat el nom d'una comarca ens torne la quantitat de
 centres que té per unitat de superfície.
 
 ![](T7_Ex_18.png)
 
-**Ex_19** - **VOLUNTARI**. Fes una funció anomenada
+**Ex_19** - Fes una funció anomenada
 **introduir_institut(varchar,varchar,varchar,varchar,numeric,numeric)** , que
 accepte els paràmetres indicats, un per cada camp de la taula INSTITUTS, que
 comprove:
@@ -115,7 +117,7 @@ comprove:
 En cas que tot siga correcte, s’ha d’introduir el nou institut. En cas
 contrari ha de saltar un error
 
-**Ex_20** - **VOLUNTARI**. Fes un trigger per a portar una auditoria de la taula
+**Ex_20** - Fes un trigger per a portar una auditoria de la taula
 **INSTITUTS** per a controlar totes les modificacions que es fan en la taula
 INSTITUTS. Per a això per cada actualització feta, introduirem una fila en la
 taula nova anomenada**AUDIT_INSTITUT** (creant-la prèviament si no existeix)
@@ -138,6 +140,7 @@ Evidentment, la manera de comprovar-lo vosaltres és fer operacions
 d'actualització i el resultat ha de ser obligatòriament deferent:
 
 ![](T7_Ex_20.png)
+-->
 
 
 
