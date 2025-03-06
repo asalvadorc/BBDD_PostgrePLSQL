@@ -7,9 +7,8 @@ funcions. Així és com veurem l'extensibilitat de PostgreSQL, com és de
 versàtil i ens podem crear objectes a la nostra mida.
 
 !!!note "Nota"  
-	En pgAdmin 1.18.1 o qualsevol altra versió, no es visualitzen per defecte tots
-	els tipus d'objectes de la Base de Dades. Només hem d'anar al menú **Fitxer -> Opcions** i en la pestanya **Visualitza**(**Browser**) triar els objectes
-	que volem.
+	En DBeaver, no es visualitzen per defecte tots
+	els tipus d'objectes de la Base de Dades. Per poder visulitzar-los has d'executar la consulta: **SELECT * FROM pg_operator**
 
 ## 9.1 Operadors
 

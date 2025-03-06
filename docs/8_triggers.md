@@ -48,45 +48,45 @@ exemple per a actualitzar una altra taula):
 
 Anem a parlar ara de la funció que es crida quan es dispara el _trigger_. És
 una funció especial, escrita en qualsevol llenguatge definit, que com hem
-comentat abans ha de tornar obligatòriament un valor **TRIGGER**. De fet, amb
-la utilitat PgAdmin existeix l'objecte **TRIGGER FUNCTION** diferenciat de les
-funcions normals. Aquesta funció pot tenir paràmetres, i òbviament hauran de
-coincidir aquestos en la definició de la funció i en la definició del
-_trigger_.
+comentat abans ha de tornar obligatòriament un valor **TRIGGER**. Aquesta funció pot tenir paràmetres, i òbviament hauran de coincidir aquestos en la definició de la funció i en la definició del _trigger_.
 
 Quan s'arriba a la funció, que nosaltres sempre la definirem en PL/pgSQL,
 s'han definit unes quantes variables especials. Anem a comentar-les:
 
-  * **NEW** : de tipus RECORD. Conté la fila que va a inserir-se o la nova informació, si va a actualitzar-se
+ 
+| Nom           | Tipus       | Descripció |
+|--------------|------------|------------|
+| **NEW**      | RECORD     | Conté la fila que va a inserir-se o la nova informació, si va a actualitzar-se. |
+| **OLD**      | RECORD     | Conté la fila que va a esborrar-se o la informació vella, si va a actualitzar-se. |
+| **TG_NAME** | NAME     | Conté el nom del trigger que s'ha disparat i ha cridat aquesta funció. |
+| **TG_WHEN**  | TEXT       | Indica quan actua el trigger, **BEFORE** o **AFTER**. |
+| **TG_LEVEL** | TEXT       | Indica de quina manera actua, **ROW** o **STATEMENT**. |
+| **TG_OP**    | TEXT       | Indica quin event ha provocat el trigger: **INSERT**, **UPDATE** o **DELETE**. |
+| **TG_RELID** | OID        | Conté l'identificador de la taula que ha provocat el trigger (podria ser més d'una). |
+| **TG_RELNAME** | TEXT     | Conté el nom de la taula que ha provocat el trigger. |
+| **TG_NARGS**  | INTEGER   | Indica el nombre de paràmetres que se li passen. |
+| **TG_ARGV[ ]** | VECTOR de TEXT | Vector que conté els paràmetres. |
 
-  * **OLD** : de tipus RECORD. Conté la fila que va a esborrar-se o la informació vella, si va a actualitzar-se.
-
-  * **TG_NAME** : de tipus NAME. Conté el nom del trigger que s'ha disparat i ha cridat aquesta funció (podria ser que més d'un trigger apunte a una funció, però nosaltres no ho contemplarem)
-
-  * **TG_WHEN** : de tipus TEXT. Indica quan actua el trigger, BEFORE o AFTER.
-
-  * **TG_LEVEL** : de tipus TEXT. Indica de quina manera actua, ROW o STATEMENT.
-
-  * **TG_OP** : de tipus TEXT. Indica quin event ha provocat el trigger: INSERT, UPDATE o DELETE
-
-  * **TG_RELID** : de tipus OID. Conté l'identificador de la taula que ha provocat el trigger (podria ser més d'una).
-
-  * **TG_RELNAME** : de tipus TEXT. Conté el nom de la taula que ha provocat el trigger
-
-  * **TG_NARGS** : de tipus INTEGER. Indica el nombre de paràmetres que se li passen.
-
-  * **TG_ARGV[ ]** : de tipus VECTOR de TEXT. Vector que conté els paràmetres.
 
 Aquesta és una relació de variables prou extensiva. En la pràctica nosaltres
 només utilitzarem **NEW** , **OLD** i en tot cas **TG_OP**.
 
-Una funció de trigger ha de tornar o bé null, o bé un RECORD amb la mateixa
-estructura que la fila de la taula.
+Una **funció de trigger** ha de tornar o bé **NULL**, o bé un **RECORD**, amb la mateixa
+estructura que la fila de la taula. Depenent del tipus de trigger (BEFORE o AFTER), podeu tornar:
 
-Si un trigger de nivell de fila (_for each row_) torna un valor nul, no
+>>>| Tipus de Trigger           | Què ha de tornar la funció de trigger          |
+>>>|---------------------------|--------------------------------------------------|
+>>>| **BEFORE INSERT/UPDATE**    | **NEW** (per modificar la fila) o **NULL** (per cancel·lar) |
+>>>| **BEFORE DELETE**           | **OLD** (si cal registrar el valor abans d'esborrar) |
+>>>| **AFTER** (cualquier tipus)  | **NULL** (perquè l'operació ja es va executar) |
+
+
+ 
+
+Si un trigger de nivell de fila (**_for each row_**) torna un valor null, no
 s'efectuaran més operacions (si és un delete, que esborra més d'una fila, si
-la funció torna nul ja no s'intentaran esborrar més files). En canvi si torna
-una cosa distinta de nul, aleshores es procedirà a l'actualització amb aquest
+la funció torna null, ja no s'intentaran esborrar més files). En canvi, si torna
+una cosa distinta de null, aleshores es procedirà a l'actualització amb aquest
 valor. Així, per curar en salut, podem fer que l'última línia de la funció de
 trigger siga **RETURN NEW;** Açò pot ser molt útil, ja que si és una inserció
 o actualització podríem fins i tot modificar la fila NEW per a que agafe els
@@ -95,9 +95,55 @@ estiguérem actualitzant el sou d'un empleat).
 
 Els valors tornats per una funció trigger de nivell de _**statement**_ són
 sempre ignorats, igual que un AFTER de nivell de fila (ja és massa tard per
-actuar), i per tant millor posar que tornen nul.
+actuar), i per tant millor posar que tornen null.
 
-Anem a veure un exemple, per impedir que es modifique el nombre d'habitants
+**Exemple: Modificar valors abans de la inserció (BEFORE INSERT)**
+
+
+Si algú insereix NULL en nom, el trigger el reemplaça per 'Desconocido'.
+
+        CREATE OR REPLACE FUNCTION evitar_nulos()
+        RETURNS TRIGGER AS $$
+        BEGIN
+            -- Si el campo nombre es NULL, se asigna un valor por defecto
+            IF NEW.nombre IS NULL THEN
+                NEW.nombre := 'Desconocido';
+            END IF;
+            RETURN NEW; -- Devuelve la fila modificada
+        END;
+        $$ LANGUAGE plpgsql;
+
+        CREATE TRIGGER trigger_evitar_nulos
+        BEFORE INSERT ON usuarios
+        FOR EACH ROW
+        EXECUTE FUNCTION evitar_nulos();
+
+
+**Exemple: Cancel·lar una inserció (BEFORE INSERT amb NULL)**
+
+Si el saldo és menor que 0, es cancel·la la inserció
+
+        CREATE OR REPLACE FUNCTION bloquear_insercion()
+        RETURNS TRIGGER AS $$
+        BEGIN
+            IF NEW.saldo < 0 THEN
+                RAISE EXCEPTION 'No se permiten saldos negativos';
+                RETURN NULL; -- Cancela la inserción
+            END IF;
+            RETURN NEW;
+        END;
+        $$ LANGUAGE plpgsql;
+
+        CREATE TRIGGER trigger_bloqueo
+        BEFORE INSERT ON cuentas
+        FOR EACH ROW
+        EXECUTE FUNCTION bloquear_insercion();
+
+______
+!!!Note  "Anem a veure uns altres **exemples** en la base de dades **geo_grup_9999x**:"
+    
+
+**Exemple**: impedir que es modifique el nombre d'habitants
 d'una localitat en més de 50000 persones (augmentant o disminuint). Només té
 sentit el control quan es modifique la columna **poblacio**. No té sentit ni
 en inserir ni en esborrar una fila. I ens convé abans d’actualitzar, per poder
@@ -141,8 +187,8 @@ l'actualització:
 
     ![](T7_8_2.png)
 
-Mirem un altre exemple: un trigger que actualitza automàticament el nombre
-d'instituts de la taula **PROVINCIES**(teniu la sentència de creació en la
+Mirem un altre **exemple**: un trigger que actualitza automàticament el nombre
+d'instituts de la taula **PROVINCIES** (teniu la sentència de creació en la
 pregunta 0 d'aquest tema) quan s'insereix o s'esborra un institut. Primer
 s'haurà de mirar la província de l'institut que s'està introduint o esborrant,
 i després s'incrementa o decrementa el nombre d'instituts de la província:
@@ -194,7 +240,7 @@ El contingut de la taula PROVINCIES és ara:
 
 ![](T7_8_4.png)
 
-Un últim exemple per a veure el de **FOR EACH STATEMENT**. Intentarem fer un
+Un últim **exemple** per a veure el de **FOR EACH STATEMENT**. Intentarem fer un
 trigger per a que actualitze la població de les províncies. Ara anem a
 plantejar-lo de manera que calcule una altra vegada el total de les
 poblacions. Per tant, segurament és millor calcular-ho quantes menys vegades
