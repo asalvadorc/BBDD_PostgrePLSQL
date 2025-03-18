@@ -91,13 +91,13 @@ a això
   * El caràcter 9 ha de ser **"**
   * El caràcter 10 ha de ser **N** o **S**
   * Si no s'acompleix alguna de les restriccions anteriors, ha d'eixir un error dient que la latitud ha d'estar entre 00º00'00"N i 90º00'00"N , o entre 00º00'00"S i 90º00'00"S
-
+<!--
 **Ex_16** - Crear els dos **operadors de comparació** que quedaven per al tipus
 **lat** : **< **i **< =**
 
 **Ex_17** - Crear la funció d'agregat **MIN** per al tipus de dades **lat**.
 
-
+-->
 <!--
 **Ex_18** - Fes una funció en PL/pgSQL anomenada
 **DENSITAT_CENTRES** que donat el nom d'una comarca ens torne la quantitat de

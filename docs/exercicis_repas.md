@@ -197,6 +197,8 @@ En la imagen se observa cómo se han hecho 3 actualizaciones desde el momento de
  fecha:  fecha modificación
  poblacion_anterior:  población antes de la actualización.
 
+<!-- 
+
 ## **Operadors**{.azul}
 
 **Ejercicio O1:** Crea el operador <| para mostrar el área del triángulo de dos operandos. Evidentemente se basará en una función que puedes llamar Triangulo con 2 parámetros numéricos, que serán la base y la altura del triangulo, y calculará su área. El resultado devuelto, por tanto, también será un numérico. Puedes comprobarlo con  SELECT 4 <| 3 que debe dar 6.
@@ -210,7 +212,7 @@ En la imagen se observa cómo se han hecho 3 actualizaciones desde el momento de
 
 **Ejercicio FA2:** crear una función agregada que calcule la raíz cuadrada de  la suma del cuadrado de los valores de una columna de una tabla. 
 
-
+-->
 
 Llicenciat sota la  [Llicència Creative Commons Reconeixement NoComercial
 CompartirIgual 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/)
