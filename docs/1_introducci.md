@@ -12,7 +12,7 @@ que siga.
 La part bàsica de tot açò serà la construcció de funcions. Aquestes es poden
 construir utilitzant molts llenguatges, començant per **SQL**, on agruparem
 en una funció unes quantes sentències SQL o una sentència complicada. Anem a
-veure algun exemple, sobre l'usuari **geo_grup_9999x** , bé des de **psql** o
+veure algun exemple, sobre l'usuari **geo_local** , bé des de **psql** o
 bé des d'una finestra de SQL de **DBeaver** , que el que fa és sumar la
 població dels pobles de la comarca passada com a paràmetre. Hem utilitzat
 l'opció **CREATE OR REPLACE** , així en cas que estiga ja creada, dons la

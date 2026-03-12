@@ -1,32 +1,18 @@
 # 0. DDL, DML de la BD per als exercicis.
 
-En aquest tema també construirem molts objectes, per tant podem "boicotejar-
-nos" entre nosaltres si utilitzem tots el mateix usuari.
+En aquest tema també construirem molts objectes, per tant, en lloc de fer ús d’un servidor allotjat al núvol, treballareu amb un servidor **PostgreSQL de manera local**, utilitzant contenidors **Docker**. En tot cas, seguirem utilitzant el client **DBeaver** per connectar-nos i gestionar la base de dades. Tots els exemples i tots els exercicis els farem sobre una Base de Dades anomenada **geo_local** dins de la nostra connexió **postgres_local**.
 
-És per això que en aquest tema tots els exemples i tots els exercicis els
-farem sobre un usuari (i contrasenya) i una Base de Dades anomenada
-**geo_grup_9999x** , on heu de substituir **grup** pel codi del vostre grup,
-**9999** per les 4 últimes xifres del vostre DNI, i la **x** per la lletra del
-vostre NIF. La connexió serà per tant:
 
-!!!note ""
-    Servidor: **89.36.214.106**
+!!!note "Dins de la connexió postgres_local"
+    - **Host**: localhost
+    - **Port**: 5432
+    - **Database**: geo_local
+    - **Username**: admin
+    - **Password**: admin
 
-    Usuari: **geo_grup_9999x** (on **grup** és el codi del vostre grup, **9999**
-    són les 4 últimes xifres del vostre DNI, i **x** la vostra lletra del NIF)
+!!!Warning "Importante"
+    Us recomane que us creeu una altra connexió per a **geo_local**. 
 
-    Contrasenya: **geo_grup_9999x**(el mateix d'abans)
-
-    Base de Dades: **geo_grup_9999x** (el mateix d'abans)
-
-<!--
-En la Base de Dades **geo_grup_9999x** ja teniu les taules de prova que estem
-utilitzant: **COMARQUES** , **POBLACIONS** i **INSTITUTS**.
-
-Per a poder desenvolupar correctament el tema, us faran falta alguns altres
-objectes creats en el tema anterior, però observeu com ara no interferireu
-entre vosaltres.
--->
 
 Ací teniu les sentències de creació dels objectes que us faran falta:
 

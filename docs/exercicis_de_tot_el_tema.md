@@ -1,6 +1,6 @@
 # Exercicis de tot el tema
 
-En la Base de Dades **geo_grup_9999x** :  
+En la Base de Dades **gelo_local** :  
   
 **Ex_1** - Crea una funció anomenada **DEU_****Q** , que traga els **números del 1
 al 10** i els seus **quadrats**. (Utilitza **RAISE NOTICE**).  

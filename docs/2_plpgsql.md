@@ -31,7 +31,7 @@ coma.
 Observeu que ací BEGIN i END no tenen el significat de SQL, és a dir no
 serviran per a començar o acabar una transacció.
 
-Vejam un exemple (sobre l'usuari **geo_grup_9999x**):
+Vejam un exemple (sobre l'usuari **geo_local**):
 
     
     

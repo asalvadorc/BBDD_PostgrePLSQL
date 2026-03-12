@@ -293,7 +293,7 @@ I exactament igual amb les funcions **menor(lat,lat)** i
 
 ## :pencil2: Exercicis
 
-En la Base de Dades **geo_grup_9999x** :  
+En la Base de Dades **gelo_local** :  
   
 **Ex_16** - Crear els dos **operadors de comparació** que quedaven per al tipus
 **lat** : **< **i **< =**. Primer haureu de crear les 2 funcions que queden:
@@ -480,7 +480,7 @@ el tipus implicat:
 
 ## :pencil2:  Exercicis
 
-En la Base de Dades **geo_grup_9999x** :  
+En la Base de Dades **gelo_local** :  
   
   
 **Ex_17** - Crear la funció d'agregat **MIN** per al tipus de dades **lat**.    

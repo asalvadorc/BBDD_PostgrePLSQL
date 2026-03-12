@@ -140,7 +140,7 @@ Si el saldo és menor que 0, es cancel·la la inserció
         EXECUTE FUNCTION bloquear_insercion();
 
 ______
-!!!Note  "Anem a veure uns altres **exemples** en la base de dades **geo_grup_9999x**:"
+!!!Note  "Anem a veure uns altres **exemples** en la base de dades **gelo_local**:"
     
 
 **Exemple**: impedir que es modifique el nombre d'habitants
@@ -319,7 +319,7 @@ d'usuari, que són els que no són per implementar les claus externes.
 
 ## :pencil2:  Exercicis
 
-En la Base de Dades **geo_grup_9999x** :  
+En la Base de Dades **gelo_local** :  
   
 **Ex_12** - Crear un trigger anomenat **TR_ALT_POS** que controle que l'altura
 d'una nova població siga estrictament psitiva. La funció en la qual es basa
