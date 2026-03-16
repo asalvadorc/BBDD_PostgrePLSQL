@@ -241,7 +241,7 @@ d'utilitzar obligatòriament la funció anterior
 
 ![](T7_6_Ex11.png)
 
-**Ex_12:** Crea una función que tome el nombre de una comarca como parámetro y muestre una lista de poblaciones en esa comarca junto con sus habitantes.
+**Ex_12:** Crea una funció que prenga el nom d’una comarca com a paràmetre i mostre una llista de poblacions d’eixa comarca juntament amb els seus habitants.
 
       select lista_poblaciones_por_comarca('Racó');
 
@@ -255,8 +255,7 @@ d'utilitzar obligatòriament la funció anterior
       Población: Puebla de San Miguel -- habitantes:71
 
 
-**Ex_13:** Crea una función que muestre el nombre de la comarca y el promedio de altura de todas las poblaciones de la misma comarca, ordenado por comarca. Al final devuelve el número total de comarcas.
-
+**Ex_13:** Crea una funció que mostre el nom de la comarca i la mitjana d’altura de totes les poblacions de la mateixa comarca, ordenat per comarca. Al final, retorna el nombre total de comarques.
 
       Comarca: Alt Vinalopó -- Promedio altura: 580.1428571428571429
       Comarca: Baix Maestrat -- Promedio altura: 316.4444444444444444
@@ -273,7 +272,7 @@ d'utilitzar obligatòriament la funció anterior
       total comarcas:34
 
 
-**Ex_14:** Crea una función que muestre el nombre de la población y la cantidad de institutos asociados, incluso los que tienen 0 institutos, ordenado por institutos.
+**Ex_14:** Crea una funció que mostre el nom de la població i la quantitat d’instituts associats, inclús les que tenen 0 instituts, ordenat pel nombre d’instituts.
 
       ............................
       Población: Xàtiva -- Institutos: 3
@@ -290,14 +289,14 @@ d'utilitzar obligatòriament la funció anterior
       Población: Zarra -- Institutos: 0
       Población: Zucaina -- Institutos: 0
 
-**Ex_15:**  Crea una función que tome el nombre de una comarca como parámetro y muestre la población y la altura de la población con la altura más alta.
+**Ex_15:**  Crea una funció que prenga el nom d’una comarca com a paràmetre i mostre la població i l’altura de la població amb l’altura més alta.
 
       select altura_maxima_por_comarca('Alacantí');
 
       Población: Torre de les Maçanes, la --  altura máxima: 788
 
 
-**Ex_16:** Crea una función que muestre el nombre y la altura de las poblaciones que tienen alturas superiores al promedio.
+**Ex_16:** Crea una funció que mostre el nom i l’altura de les poblacions que tenen alçades superiors a la mitjana.
 
       Población: Ademuz --  altura: 660
       Población: Agost --  altura: 376
@@ -309,13 +308,13 @@ d'utilitzar obligatòriament la funció anterior
       Población: Albocàsser --  altura: 538
       Población: Alborache --  altura: 320
 
-**Ex_17:** Crea una función que tome dos nombres de provincias como parámetros y devuelva la diferencia absoluta de población entre ambas provincias.
+**Ex_17:** Crea una funció que prenga dos noms de províncies com a paràmetres i retorne la diferència absoluta de població entre totes dues províncies.
 
       select diferencia_poblacion_entre_provincias('València', 'Alacant');
 
       RETURN: 680.460
 
-**Ex_18:** Crea una función que muestre el nombre de las poblaciones que no tienen institutos asociados en la tabla instituts, ordenado por población.
+**Ex_18:** Crea una funció que mostre el nom de les poblacions que no tenen instituts associats en la taula instituts, ordenat per població.
 
       Población: Ador
       Población: Agres
@@ -330,7 +329,7 @@ d'utilitzar obligatòriament la funció anterior
       Población: Albuixech
       Población: Alcalalí
 
-**Ex_19:** Crea una función que muestre el nombre de las poblaciones que tienen una población por debajo del promedio.
+**Ex_19:** Crea una funció que mostre el nom de les poblacions que tenen una població per davall de la mitjana.
       
       Promedio= 9234.0295
 
@@ -346,42 +345,46 @@ d'utilitzar obligatòriament la funció anterior
       Población: Albaida habitantes: 6031
 
 
-**Ex_20:** Crea una función que dado el nombre de una población y una comarca nos permita establecer la lengua para esa población.
+**Ex_20:** Crea una funció que, donat el nom d’una població i d’una comarca, ens permeta establir la llengua per a eixa població.
 
       SELECT SET_LLENGUA('Almudaina','Comtat','V');
 
       RETURN: void
 
-**Ex_21:** Crea una función llamada Densidad_centros que dado el nombre de una comarca nos devuelva la cantidad de centros que tiene por unidad de superficie.
+**Ex_21:** Crea una funció anomenada Densitat_centres que, donat el nom d’una comarca, ens retorne la quantitat de centres que té per unitat de superfície.
 
       SELECT DENSIDAD_CENTRES('Plana Alta');
 
       RETURN: 0.0219
 
-**Ex_22:** La misma función del ejercicio anterior pero utilizando cursor explícito.
+**Ex_22:** La mateixa funció de l’exercici anterior però utilitzant un cursor explícit.
 
-**Ex_23:** Crea una función, utilizando al menos un cursor explícito, llamada ALTURA_MITJA, que nos permita obtener la altura media a la que están los centros en función de la comarca y de la lengua de la población (estos serán los parámetros de entrada).
+
+**Ex_23:** Crea una funció, utilitzant almenys un cursor explícit, anomenada ALTURA_MITJA, que ens permeta obtindre l’altura mitjana a què estan els centres en funció de la comarca i de la llengua de la població (aquests seran els paràmetres d’entrada).
+
 
       SELECT ALTURA_MITJA ('Comtat'.'v');
 
       RETURN: 455
 
 
-**Ex_24:** Crea una función, utilizando cursores, llamada POBLACIONS_GRANS que dado el nombre de una comarca nos devuelva los nombres de las poblaciones de la comarca que tienen una población superior en un 50% a la media de población de la provincia.
+**Ex_24:** Crea una funció, utilitzant cursors, anomenada POBLACIONS_GRANS, que donat el nom d’una comarca ens retorne els noms de les poblacions de la comarca que tenen una població superior en un 50% a la mitjana de població de la província.
+
 
       
 ![](T7_e13.png)
       
 
-**Ex_25:** Crea una función, utilizando cursores, llamada CENTRES_DUO , que dado el nombre de una comarca nos devuelva la cantidad total de centros de las dos poblaciones con mayor número de habitantes.
+**Ex_25:** Crea una funció, utilitzant cursors, anomenada CENTRES_DUO, que donat el nom d’una comarca ens retorne la quantitat total de centres de les dues poblacions amb un major nombre d’habitants.
+
 
 ![](T7_e14.png)
 
-**Ex_26:** Crea una función  llamada INTRODUCIR_INSTITUTO(varchar,varchar,varchar,varchar,numeric,numeric), que acepte los parámetros indicados, uno por cada campo de la tabla INSTITUTS, que compruebe:
+**Ex_26:** Crea una funció anomenada INTRODUCIR_INSTITUTO(varchar, varchar, varchar, varchar, numeric, numeric), que accepte els paràmetres indicats, un per cada camp de la taula INSTITUTS, i que comprove:
 
-- Que el primer parámetro, el código del instituto, tenga exactamente 8 caracteres y que comience por 03, 12 o 46 (los códigos de provincia)
-- Que el código postal esté entre 3001 y 3999, 12001 y 12999 o 46001 y 46999.
-Observa que el cod_m no hará falta comprobarlo, ya que es clave externa y saltaría el error si no es un código de municipio existente.
+- Que el primer paràmetre, el codi de l’institut, tinga exactament 8 caràcters i que comence per 03, 12 o 46 (els codis de província).
+- Que el codi postal estiga entre 3001 i 3999, 12001 i 12999 o 46001 i 46999. Observa que cod_m no farà falta comprovar-lo, ja que és clau externa i apareixeria un error si no fora un codi de municipi existent.
+
 
 >      select introduir_intitut('46000000','Institut de prova','Castello','s/n',3001,12028);
 >      select introduir_intitut('03000000','Institut de prova','Castello','s/n',3001,12028);
