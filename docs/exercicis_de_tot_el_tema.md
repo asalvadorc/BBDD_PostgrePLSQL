@@ -1,6 +1,6 @@
 # Exercicis de tot el tema
 
-En la Base de Dades **gelo_local** :  
+En la Base de Dades **geo_local** :  
 
 ## **Funcions**{.azul}
   
