@@ -2,7 +2,7 @@
 
 En la Base de Dades **gelo_local** :  
 
-## **Funcions**
+## **Funcions**{.azul}
   
 **Ex_F1** - Crea una funció anomenada **DEU_****Q** , que traga els **números del 1
 al 10** i els seus **quadrats**. (Utilitza **RAISE NOTICE**).  
@@ -62,7 +62,7 @@ d'utilitzar obligatòriament la funció anterior
 
 ![](T7_6_Ex11.png)
 
-## **Trigger**
+## **Trigger**{.azul}
 
 **Ex_T1** - Crear un trigger anomenat **TR_ALT_POS** que controle que l'altura
 d'una nova població siga estrictament positiva. La funció en la qual es basa
@@ -127,7 +127,7 @@ En la imagen se observa cómo se han hecho 3 actualizaciones desde el momento de
  fecha:  fecha modificación
  poblacion_anterior:  población antes de la actualización.
 
-## **Cursors**
+## **Cursors**{.azul}
 
 **Ex_C1:** Crea una función que tome el nombre de una comarca como parámetro y muestre una lista de poblaciones en esa comarca junto con sus habitantes.
 
