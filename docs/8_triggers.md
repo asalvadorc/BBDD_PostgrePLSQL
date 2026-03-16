@@ -321,14 +321,14 @@ d'usuari, que són els que no són per implementar les claus externes.
 
 En la Base de Dades **gelo_local** :  
   
-**Ex_12** - Crear un trigger anomenat **TR_ALT_POS** que controle que l'altura
+**Ex_27** - Crear un trigger anomenat **TR_ALT_POS** que controle que l'altura
 d'una nova població siga estrictament psitiva. La funció en la qual es basa
 es pot anomenar **ALT_POS**.  
   
-**Ex_13** - Modificar l'anterior per a que ho controle també quan es tracta d'una
+**Ex_28** - Modificar l'anterior per a que ho controle també quan es tracta d'una
 modificació.
 
-**Ex_14** - Crear un trigger anomenat **TR_EXT_0_1000** que controle que l'extensió
+**Ex_29** - Crear un trigger anomenat **TR_EXT_0_1000** que controle que l'extensió
 d'un municipi (població) estiga obligatòriament entre 0 i 1000, i ha de ser
 sempre, tant si s'insereix una nova població com si es modifica. Però en
 aquesta ocasió, en compte de traure un error, el que farem serà modificar
@@ -337,7 +337,7 @@ li posarem 0. Ho aconseguirem modificant NEW.extensio, i com la funció del
 trigger torna sempre NEW, doncs agafarà el nou valor. Anomeneu a la funció
 **EXT_0_1000**.
 
-**Ex_15** - **VOLUNTARI**. En la taula POBLACIONS3 tenim controlat que la latitud
+**Ex_30** - **VOLUNTARI**. En la taula POBLACIONS3 tenim controlat que la latitud
 introduïda siga correcta per mig del tipus lat, però no en la taula
 POBLACIONS, on és de tipus VARCHAR(50) i per tant es podria introduir una
 latitud incorrecta molt fàcilment. Crea un trigger que controle que quan
@@ -353,6 +353,37 @@ a això
   * El caràcter 10 ha de ser **N** o **S**
   * Si no s'acompleix alguna de les restriccions anteriors, ha d'eixir un error dient que la latitud ha d'estar entre 00º00'00"N i 90º00'00"N , o entre 00º00'00"S i 90º00'00"S  
 
+**Ex_31:** Crear un trigger que, después de una inserción, actualice automáticamente la cantidad total de habitantes en la tabla provincies cada vez que se inserta una nueva población en la tabla poblacions.
+
+**Ex_32:** Crear un trigger que evite la actualización del nombre de una población en la tabla poblacions3 si  existe la comarca.
+
+**Ex_33:** Crear un trigger que evite la inserción de un nuevo instituto en la tabla instituts si el código de la población asociada no existe en la tabla poblacions.
+
+**Ex_34:** Crear un trigger, MOD_LLEN, que nos avise cuando una población cambia de lengua mayoritaria.  
+
+![](T7_t4.png)
+
+**Ex_35:** Crea un trigger para llevar una auditoría de la tabla INSTITUTS para controlar todas las modificaciones que se hacen en la tabla. Para eso, por cada actualización hecha introduciremos una fila en la tabla AUDIT_INSTITUT (crearla previamente si no existe) con la siguiente información:
+
+- num_a: es la clave principal de la tabla, que será un autonumérico  (SERIAL)
+ 	
+- operacio: contendrá el tipo de operación de actualización realizada en la tabla INSTITUS, 	que podrá ser: INSERT, DELETE o UPDATE
+ 	
+- codi_institut: código del instituto afectado por la operación de actualización.
+ 	
+- usuari: usuario que ha realizado la operación de actualización, se puede obtener con current_user; podríamos pensar que siempre será el mismo usuario que hace la operación, pero en realidad lo puede hacer todo usuario que tenga permiso de acceso a la Base de Datos. En la imagen se puede observar cómo el usuario postgres también ha hecho una operación de actualización.d’actualització
+ 	
+- data_op: fecha-hora (timestamp) de la actualtzación; se puede obtener con la función now()
+
+
+![](T7_t5.png)
+
+En la imagen se observa cómo se han hecho 3 actualizaciones desde el momento de creación del trigger, la última de ellas realizada por el usuario  postgres
+
+**Ex_36:** Crear un trigger que registre automáticamente en una tabla de auditoría, cada vez que se actualiza la población en la tabla poblacions, pero sólo si la población aumenta en más del 10%. En la tabla se guardará el valor de la población antes de ser actualizado. Crear la tabla audit_poblacions previamente, si no existe, con la siguiente información:
+ cod_m: códido de población
+ fecha:  fecha modificación
+ poblacion_anterior:  población antes de la actualización.
 
 
 Llicenciat sota la  [Llicència Creative Commons Reconeixement NoComercial
