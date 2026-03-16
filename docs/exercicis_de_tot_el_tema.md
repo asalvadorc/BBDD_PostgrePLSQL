@@ -64,7 +64,8 @@ d'utilitzar obligatòriament la funció anterior
 
 ![](T7_6_Ex11.png)
 
-**Ex_12:** Crea una función que tome el nombre de una comarca como parámetro y muestre una lista de poblaciones en esa comarca junto con sus habitantes.
+
+**Ex_12:** Crea una funció que prenga el nom d’una comarca com a paràmetre i mostre una llista de poblacions d’eixa comarca juntament amb els seus habitants.
 
       select lista_poblaciones_por_comarca('Racó');
 
@@ -78,8 +79,7 @@ d'utilitzar obligatòriament la funció anterior
       Población: Puebla de San Miguel -- habitantes:71
 
 
-**Ex_13:** Crea una función que muestre el nombre de la comarca y el promedio de altura de todas las poblaciones de la misma comarca, ordenado por comarca. Al final devuelve el número total de comarcas.
-
+**Ex_13:** Crea una funció que mostre el nom de la comarca i la mitjana d’altura de totes les poblacions de la mateixa comarca, ordenat per comarca. Al final, retorna el nombre total de comarques.
 
       Comarca: Alt Vinalopó -- Promedio altura: 580.1428571428571429
       Comarca: Baix Maestrat -- Promedio altura: 316.4444444444444444
@@ -96,7 +96,7 @@ d'utilitzar obligatòriament la funció anterior
       total comarcas:34
 
 
-**Ex_14:** Crea una función que muestre el nombre de la población y la cantidad de institutos asociados, incluso los que tienen 0 institutos, ordenado por institutos.
+**Ex_14:** Crea una funció que mostre el nom de la població i la quantitat d’instituts associats, inclús les que tenen 0 instituts, ordenat pel nombre d’instituts.
 
       ............................
       Población: Xàtiva -- Institutos: 3
@@ -113,14 +113,14 @@ d'utilitzar obligatòriament la funció anterior
       Población: Zarra -- Institutos: 0
       Población: Zucaina -- Institutos: 0
 
-**Ex_15:**  Crea una función que tome el nombre de una comarca como parámetro y muestre la población y la altura de la población con la altura más alta.
+**Ex_15:**  Crea una funció que prenga el nom d’una comarca com a paràmetre i mostre la població i l’altura de la població amb l’altura més alta.
 
       select altura_maxima_por_comarca('Alacantí');
 
       Población: Torre de les Maçanes, la --  altura máxima: 788
 
 
-**Ex_16:** Crea una función que muestre el nombre y la altura de las poblaciones que tienen alturas superiores al promedio.
+**Ex_16:** Crea una funció que mostre el nom i l’altura de les poblacions que tenen alçades superiors a la mitjana.
 
       Población: Ademuz --  altura: 660
       Población: Agost --  altura: 376
@@ -132,13 +132,13 @@ d'utilitzar obligatòriament la funció anterior
       Población: Albocàsser --  altura: 538
       Población: Alborache --  altura: 320
 
-**Ex_17:** Crea una función que tome dos nombres de provincias como parámetros y devuelva la diferencia absoluta de población entre ambas provincias.
+**Ex_17:** Crea una funció que prenga dos noms de províncies com a paràmetres i retorne la diferència absoluta de població entre totes dues províncies.
 
       select diferencia_poblacion_entre_provincias('València', 'Alacant');
 
       RETURN: 680.460
 
-**Ex_18:** Crea una función que muestre el nombre de las poblaciones que no tienen institutos asociados en la tabla instituts, ordenado por población.
+**Ex_18:** Crea una funció que mostre el nom de les poblacions que no tenen instituts associats en la taula instituts, ordenat per població.
 
       Población: Ador
       Población: Agres
@@ -153,7 +153,7 @@ d'utilitzar obligatòriament la funció anterior
       Población: Albuixech
       Población: Alcalalí
 
-**Ex_19:** Crea una función que muestre el nombre de las poblaciones que tienen una población por debajo del promedio.
+**Ex_19:** Crea una funció que mostre el nom de les poblacions que tenen una població per davall de la mitjana.
       
       Promedio= 9234.0295
 
@@ -169,46 +169,45 @@ d'utilitzar obligatòriament la funció anterior
       Población: Albaida habitantes: 6031
 
 
-**Ex_20:** Crea una función que dado el nombre de una población y una comarca nos permita establecer la lengua para esa población.
+**Ex_20:** Crea una funció que, donat el nom d’una població i d’una comarca, ens permeta establir la llengua per a eixa població.
 
       SELECT SET_LLENGUA('Almudaina','Comtat','V');
 
       RETURN: void
 
-**Ex_21:** Crea una función llamada Densidad_centros que dado el nombre de una comarca nos devuelva la cantidad de centros que tiene por unidad de superficie.
+**Ex_21:** Crea una funció anomenada Densitat_centres que, donat el nom d’una comarca, ens retorne la quantitat de centres que té per unitat de superfície.
 
       SELECT DENSIDAD_CENTRES('Plana Alta');
 
       RETURN: 0.0219
 
-**Ex_22:** La misma función del ejercicio anterior pero utilizando cursor explícito.
+**Ex_22:** La mateixa funció de l’exercici anterior però utilitzant un cursor explícit.
 
-**Ex_23:** Crea una función, utilizando al menos un cursor explícito, llamada ALTURA_MITJA, que nos permita obtener la altura media a la que están los centros en función de la comarca y de la lengua de la población (estos serán los parámetros de entrada).
+
+**Ex_23:** Crea una funció, utilitzant almenys un cursor explícit, anomenada ALTURA_MITJA, que ens permeta obtindre l’altura mitjana a què estan els centres en funció de la comarca i de la llengua de la població (aquests seran els paràmetres d’entrada).
+
 
       SELECT ALTURA_MITJA ('Comtat'.'v');
 
       RETURN: 455
 
 
-**Ex_24:** Crea una función, utilizando cursores, llamada POBLACIONS_GRANS que dado el nombre de una comarca nos devuelva los nombres de las poblaciones de la comarca que tienen una población superior en un 50% a la media de población de la provincia.
+**Ex_24:** Crea una funció, utilitzant cursors, anomenada POBLACIONS_GRANS, que donat el nom d’una comarca ens retorne els noms de les poblacions de la comarca que tenen una població superior en un 50% a la mitjana de població de la província.
+
 
       
 ![](T7_e13.png)
       
 
-**Ex_25:** Crea una función, utilizando cursores, llamada CENTRES_DUO , que dado el nombre de una comarca nos devuelva la cantidad total de centros de las dos poblaciones con mayor número de habitantes.
+**Ex_25:** Crea una funció, utilitzant cursors, anomenada CENTRES_DUO, que donat el nom d’una comarca ens retorne la quantitat total de centres de les dues poblacions amb un major nombre d’habitants.
+
 
 ![](T7_e14.png)
 
-**Ex_26:** Crea una función  llamada INTRODUCIR_INSTITUTO(varchar,varchar,varchar,varchar,numeric,numeric), que acepte los parámetros indicados, uno por cada campo de la tabla INSTITUTS, que compruebe:
+**Ex_26:** Crea una funció anomenada INTRODUCIR_INSTITUTO(varchar, varchar, varchar, varchar, numeric, numeric), que accepte els paràmetres indicats, un per cada camp de la taula INSTITUTS, i que comprove:
 
-- Que el primer parámetro, el código del instituto, tenga exactamente 8 caracteres y que comience por 03, 12 o 46 (los códigos de provincia)
-- Que el código postal esté entre 3001 y 3999, 12001 y 12999 o 46001 y 46999.
-Observa que el cod_m no hará falta comprobarlo, ya que es clave externa y saltaría el error si no es un código de municipio existente.
-
->      select introduir_intitut('46000000','Institut de prova','Castello','s/n',3001,12028);
->      select introduir_intitut('03000000','Institut de prova','Castello','s/n',3001,12028);
-
+- Que el primer paràmetre, el codi de l’institut, tinga exactament 8 caràcters i que comence per 03, 12 o 46 (els codis de província).
+- Que el codi postal estiga entre 3001 i 3999, 12001 i 12999 o 46001 i 46999. Observa que cod_m no farà falta comprovar-lo, ja que és clau externa i apareixeria un error si no fora un codi de municipi existent.
 
 
 ## **Trigger**{.azul}
@@ -244,37 +243,36 @@ Crea un trigger que controle que quan s'introdueix o es modifica la **latitud** 
   * El caràcter 10 ha de ser **N** o **S**
   * Si no s'acompleix alguna de les restriccions anteriors, ha d'eixir un error dient que la latitud ha d'estar entre 00º00'00"N i 90º00'00"N , o entre 00º00'00"S i 90º00'00"S
 
-**Ex_31:** Crear un trigger que, después de una inserción, actualice automáticamente la cantidad total de habitantes en la tabla provincies cada vez que se inserta una nueva población en la tabla poblacions.
+**Ex_31:** Crea un trigger que, després d’una inserció, actualitze automàticament la quantitat total d’habitants en la taula provincies cada vegada que s’inserix una nova població en la taula poblacions.
 
-**Ex_32:** Crear un trigger que evite la actualización del nombre de una población en la tabla poblacions3 si  existe la comarca.
 
-**Ex_33:** Crear un trigger que evite la inserción de un nuevo instituto en la tabla instituts si el código de la población asociada no existe en la tabla poblacions.
+**Ex_32:** Crea un trigger que evite l’actualització del nom d’una població en la taula poblacions3 si existeix la comarca.
 
-**Ex_34:** Crear un trigger, MOD_LLEN, que nos avise cuando una población cambia de lengua mayoritaria.  
+
+**Ex_33:** Crea un trigger que evite la inserció d’un nou institut en la taula instituts si el codi de la població associada no existeix en la taula poblacions.
+
+
+**Ex_34:** Crea un trigger, anomenat MOD_LLEN, que ens avise quan una població canvia de llengua majoritària. 
 
 ![](T7_t4.png)
 
-**Ex_35:** Crea un trigger para llevar una auditoría de la tabla INSTITUTS para controlar todas las modificaciones que se hacen en la tabla. Para eso, por cada actualización hecha introduciremos una fila en la tabla AUDIT_INSTITUT (crearla previamente si no existe) con la siguiente información:
+**Ex_35:** Crea un trigger per a portar una auditoria de la taula INSTITUTS per a controlar totes les modificacions que es fan en la taula. Per a això, per cada operació feta introduirem una fila en la taula AUDIT_INSTITUT (crear-la prèviament si no existeix) amb la informació següent:
 
-- num_a: es la clave principal de la tabla, que será un autonumérico  (SERIAL)
- 	
-- operacio: contendrá el tipo de operación de actualización realizada en la tabla INSTITUS, 	que podrá ser: INSERT, DELETE o UPDATE
- 	
-- codi_institut: código del instituto afectado por la operación de actualización.
- 	
-- usuari: usuario que ha realizado la operación de actualización, se puede obtener con current_user; podríamos pensar que siempre será el mismo usuario que hace la operación, pero en realidad lo puede hacer todo usuario que tenga permiso de acceso a la Base de Datos. En la imagen se puede observar cómo el usuario postgres también ha hecho una operación de actualización.d’actualització
- 	
-- data_op: fecha-hora (timestamp) de la actualtzación; se puede obtener con la función now()
-
+- num_a: és la clau principal de la taula, que serà un autonumèric (SERIAL).
+- operacio: contindrà el tipus d’operació realitzada en la taula INSTITUTS, que podrà ser: INSERT, DELETE o UPDATE.
+- codi_institut: codi de l’institut afectat per l’operació.
+- usuari: usuari que ha realitzat l’operació; es pot obtindre amb current_user. Podríem pensar que sempre serà el mateix usuari que fa l’operació, però en realitat la pot fer qualsevol usuari que tinga permís d’accés a la Base de Dades.
+- data_op: data-hora (timestamp) de l’actualització; es pot obtindre amb la funció now().
 
 ![](T7_t5.png)
 
-En la imagen se observa cómo se han hecho 3 actualizaciones desde el momento de creación del trigger, la última de ellas realizada por el usuario  postgres
+En la imatge s’observa com s’han fet 3 actualitzacions des del moment de creació del trigger, l’última d’elles realitzada per l’usuari postgres.
 
-**Ex_36:** Crear un trigger que registre automáticamente en una tabla de auditoría, cada vez que se actualiza la población en la tabla poblacions, pero sólo si la población aumenta en más del 10%. En la tabla se guardará el valor de la población antes de ser actualizado. Crear la tabla audit_poblacions previamente, si no existe, con la siguiente información:
- cod_m: códido de población
- fecha:  fecha modificación
- poblacion_anterior:  población antes de la actualización.
+**Ex_36:** Crea un trigger que registre automàticament en una taula d’auditoria cada vegada que s’actualitza la població en la taula poblacions, però només si la població augmenta en més d’un 10 %. En la taula es guardarà el valor de la població abans de ser actualitzada. Crear prèviament la taula audit_poblacions, si no existeix, amb la informació següent:
+
+- cod_m: codi de població
+- data: data de la modificació
+- poblacio_anterior: població abans de l’actualització.
 
 
 <!--
