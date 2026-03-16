@@ -25,11 +25,10 @@ nav:
     - 1. Introducció: 1_introducci.md
     - 2. PL/pgSQL: 2_plpgsql.md
     - 3. Declaració de variables: 3_declaraci_de_variables.md
-    - 4. Instruccions: 4_instruccions.md
-    - 5. Missatges: 7_missatges_i_excepcions.md
-    - 6. Funcions: 5_funcions.md
-    - 7. Utilització de cursors: 6_utilitzaci_de_cursors.md
-    ## - 7. Missatges: 7_missatges_i_excepcions.md
+    - 4. Instruccions: 4_instruccions.md    
+    - 5. Funcions: 5_funcions.md
+    - 6. Utilització de cursors: 6_utilitzaci_de_cursors.md
+    - 7. Missatges: 7_missatges_i_excepcions.md
     - 8. Triggers: 8_triggers.md
     ## - 9. Creació d'altres objectes basats en funcions: 9_creaci_daltres_objectes_basats_en_funcions.md
     - Exercicis de tot el tema: exercicis_de_tot_el_tema.md
