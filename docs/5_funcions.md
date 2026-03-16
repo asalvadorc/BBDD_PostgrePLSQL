@@ -211,7 +211,6 @@ NOTICE**). Aquest podria ser el seu aspecte, en executar-la:
 ![](T7_5_e_1.png)
 
   
-  
 **Ex_4** - Fes una funció, anomenada **MAX2** , que tinga dos paràmetres
 **numèrics** i que **torne el màxim** entre aquestos dos. (Ara ja **no** s'ha
 d'utilitzar **RAISE NOTICE**). Podeu comprovar el seu funcionament fent per
@@ -224,43 +223,6 @@ obligatòriament la funció **MAX2**
 **Ex_6** - (**Voluntari**) Fes la funció **LAT_A_TEXT** , tenint en compte que ha
 de quedar com en la taula **POBLACIONS**. Segurament la dificultat més gran
 serà aconseguir que apareguen les cometes després dels minuts i dels segons.
-
-**Ex_7** - Fes una funció anomeneda **POBLACIONS_ALTES** que accepte 2 paràmetres,
-el primer de tipus text que serà una comarca, i el segon numèric que serà una
-altura. Ha de traure les poblacions de la comarca del primer paràmetre que són
-més altes que el segon paràmetre. Mostrarem el nom de la població i l'altura.
-Aquest podria ser el resultat en executar-se:
-
-![](T7_6_Ex7.png)
-
-**Ex_8** - Fes una funció anomenada **COMARQUES_NUMPOBLES** sense paràmetres que
-traga per pantalla les comarques ordenades alfabèticament amb el número de
-pobles de cadascuna
-
-![](T7_6_Ex8.png)
-
-**Ex_9** - Fes una funció anomenada **COMARQUES_NUMPOBLES_NUMINSTITUTS** sense
-paràmetres que traga per pantalla les comarques ordenades alfabèticament amb
-el número de pobles de cadascuna i el número d'instituts. En la consulta
-tindrem dos dificultats:
-
-  * Hem d'agafar totes les poblacions, fins i tot les que no tenen institut
-  * Com que hem d'accedir als instituts, per a comptar els pobles haurem de comptar els pobles distints, i així si un poble té més d'un institut, no comptar-lo més d'una vegada
-
-![](T7_6_Ex9.png)
-
-**Ex_10** - Fes una funció anomenada **NUM_HABITANTS_COMARCA** que accepte un
-paràmetre de tipus text, i torne el número d'habitants d'eixa comarca
-
-![](T7_6_Ex10.png)
-
-**Ex_11** - Fer la funció **COMARQUES_NUMHABITANTS** sense paràmetres per a traure
-per pantalla totes les comarques i el número d'habitants. En la consulta has
-d'utilitzar obligatòriament la funció anterior
-
-![](T7_6_Ex11.png)
-
-
 Llicenciat sota la  [Llicència Creative Commons Reconeixement NoComercial
 CompartirIgual 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/)
 
