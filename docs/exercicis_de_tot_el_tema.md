@@ -64,8 +64,6 @@ d'utilitzar obligatòriament la funció anterior
 
 ![](T7_6_Ex11.png)
 
-## **Cursors 2**{.azul}
-
 **Ex_12:** Crea una función que tome el nombre de una comarca como parámetro y muestre una lista de poblaciones en esa comarca junto con sus habitantes.
 
       select lista_poblaciones_por_comarca('Racó');
