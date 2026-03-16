@@ -196,7 +196,7 @@ comes: **i, i*2**
 ### :pencil2: Exercicis
 
 
-En la Base de Dades **gelo_local** :  
+En la Base de Dades **geo_local** :  
   
 **Ex_1** - Crea una funció anomenada **DEU_****Q** , que traga els **números del 1
 al 10** i els seus **quadrats**. (Utilitza **RAISE NOTICE**).  
