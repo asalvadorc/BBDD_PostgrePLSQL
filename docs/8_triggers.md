@@ -319,7 +319,7 @@ d'usuari, que són els que no són per implementar les claus externes.
 
 ## :pencil2:  Exercicis
 
-En la Base de Dades **gelo_local** :  
+En la Base de Dades **geo_local** :  
   
 **Ex_27** - Crear un trigger anomenat **TR_ALT_POS** que controle que l'altura
 d'una nova població siga estrictament psitiva. La funció en la qual es basa
