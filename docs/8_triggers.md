@@ -353,37 +353,37 @@ a això
   * El caràcter 10 ha de ser **N** o **S**
   * Si no s'acompleix alguna de les restriccions anteriors, ha d'eixir un error dient que la latitud ha d'estar entre 00º00'00"N i 90º00'00"N , o entre 00º00'00"S i 90º00'00"S  
 
-**Ex_31:** Crear un trigger que, después de una inserción, actualice automáticamente la cantidad total de habitantes en la tabla provincies cada vez que se inserta una nueva población en la tabla poblacions.
 
-**Ex_32:** Crear un trigger que evite la actualización del nombre de una población en la tabla poblacions3 si  existe la comarca.
+**Ex_31:** Crea un trigger que, després d’una inserció, actualitze automàticament la quantitat total d’habitants en la taula provincies cada vegada que s’inserix una nova població en la taula poblacions.
 
-**Ex_33:** Crear un trigger que evite la inserción de un nuevo instituto en la tabla instituts si el código de la población asociada no existe en la tabla poblacions.
 
-**Ex_34:** Crear un trigger, MOD_LLEN, que nos avise cuando una población cambia de lengua mayoritaria.  
+**Ex_32:** Crea un trigger que evite l’actualització del nom d’una població en la taula poblacions3 si existeix la comarca.
+
+
+**Ex_33:** Crea un trigger que evite la inserció d’un nou institut en la taula instituts si el codi de la població associada no existeix en la taula poblacions.
+
+
+**Ex_34:** Crea un trigger, anomenat MOD_LLEN, que ens avise quan una població canvia de llengua majoritària. 
 
 ![](T7_t4.png)
 
-**Ex_35:** Crea un trigger para llevar una auditoría de la tabla INSTITUTS para controlar todas las modificaciones que se hacen en la tabla. Para eso, por cada actualización hecha introduciremos una fila en la tabla AUDIT_INSTITUT (crearla previamente si no existe) con la siguiente información:
+**Ex_35:** Crea un trigger per a portar una auditoria de la taula INSTITUTS per a controlar totes les modificacions que es fan en la taula. Per a això, per cada operació feta introduirem una fila en la taula AUDIT_INSTITUT (crear-la prèviament si no existeix) amb la informació següent:
 
-- num_a: es la clave principal de la tabla, que será un autonumérico  (SERIAL)
- 	
-- operacio: contendrá el tipo de operación de actualización realizada en la tabla INSTITUS, 	que podrá ser: INSERT, DELETE o UPDATE
- 	
-- codi_institut: código del instituto afectado por la operación de actualización.
- 	
-- usuari: usuario que ha realizado la operación de actualización, se puede obtener con current_user; podríamos pensar que siempre será el mismo usuario que hace la operación, pero en realidad lo puede hacer todo usuario que tenga permiso de acceso a la Base de Datos. En la imagen se puede observar cómo el usuario postgres también ha hecho una operación de actualización.d’actualització
- 	
-- data_op: fecha-hora (timestamp) de la actualtzación; se puede obtener con la función now()
-
+- num_a: és la clau principal de la taula, que serà un autonumèric (SERIAL).
+- operacio: contindrà el tipus d’operació realitzada en la taula INSTITUTS, que podrà ser: INSERT, DELETE o UPDATE.
+- codi_institut: codi de l’institut afectat per l’operació.
+- usuari: usuari que ha realitzat l’operació; es pot obtindre amb current_user. Podríem pensar que sempre serà el mateix usuari que fa l’operació, però en realitat la pot fer qualsevol usuari que tinga permís d’accés a la Base de Dades.
+- data_op: data-hora (timestamp) de l’actualització; es pot obtindre amb la funció now().
 
 ![](T7_t5.png)
 
-En la imagen se observa cómo se han hecho 3 actualizaciones desde el momento de creación del trigger, la última de ellas realizada por el usuario  postgres
+En la imatge s’observa com s’han fet 3 actualitzacions des del moment de creació del trigger, l’última d’elles realitzada per l’usuari postgres.
 
-**Ex_36:** Crear un trigger que registre automáticamente en una tabla de auditoría, cada vez que se actualiza la población en la tabla poblacions, pero sólo si la población aumenta en más del 10%. En la tabla se guardará el valor de la población antes de ser actualizado. Crear la tabla audit_poblacions previamente, si no existe, con la siguiente información:
- cod_m: códido de población
- fecha:  fecha modificación
- poblacion_anterior:  población antes de la actualización.
+**Ex_36:** Crea un trigger que registre automàticament en una taula d’auditoria cada vegada que s’actualitza la població en la taula poblacions, però només si la població augmenta en més d’un 10 %. En la taula es guardarà el valor de la població abans de ser actualitzada. Crear prèviament la taula audit_poblacions, si no existeix, amb la informació següent:
+
+- cod_m: codi de població
+- data: data de la modificació
+- poblacio_anterior: població abans de l’actualització.
 
 
 Llicenciat sota la  [Llicència Creative Commons Reconeixement NoComercial
