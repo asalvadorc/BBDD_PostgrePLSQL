@@ -2,7 +2,7 @@
 
 En la Base de Dades **geo_local** :  
 
-## **Funciones**{.azul}
+## **Funcions**{.azul}
  
 **Ex_1** - Crea una funció anomenada **DEU_****Q** , que traga els **números del 1
 al 10** i els seus **quadrats**. (Utilitza **RAISE NOTICE**).  
@@ -65,161 +65,17 @@ d'utilitzar obligatòriament la funció anterior
 ![](T7_6_Ex11.png)
 
 
-**Ex_12:** Crea una funció que prenga el nom d’una comarca com a paràmetre i mostre una llista de poblacions d’eixa comarca juntament amb els seus habitants.
-
-      select lista_poblaciones_por_comarca('Racó');
-
-
-      Población: Ademuz -- habitantes:1179
-      Población: Casas Altas -- habitantes:149
-      Población: Casas Bajas -- habitantes:195
-      Población: Castielfabib -- habitantes:282
-      Población: Vallanca -- habitantes:156
-      Población: Torrebaja -- habitantes:429
-      Población: Puebla de San Miguel -- habitantes:71
-
-
-**Ex_13:** Crea una funció que mostre el nom de la comarca i la mitjana d’altura de totes les poblacions de la mateixa comarca, ordenat per comarca. Al final, retorna el nombre total de comarques.
-
-      Comarca: Alt Vinalopó -- Promedio altura: 580.1428571428571429
-      Comarca: Baix Maestrat -- Promedio altura: 316.4444444444444444
-      Comarca: Baix Segura -- Promedio altura: 25.8518518518518519
-      Comarca: Baix Vinalopó -- Promedio altura: 74.0000000000000000
-      Comarca: Camp de Morvedre -- Promedio altura: 95.3125000000000000
-      Comarca: Camp de Túria -- Promedio altura: 198.4000000000000000
-      Comarca: Canal de Navarrés -- Promedio altura: 261.5000000000000000
-      Comarca: Comtat -- Promedio altura: 552.4583333333333333
-      Comarca: Costera -- Promedio altura: 170.6842105263157895
-      Comarca: Foia de Bunyol -- Promedio altura: 361.8888888888888889
-      Comarca: Horta Nord -- Promedio altura: 22.0476190476190476
-      ..............................
-      total comarcas:34
-
-
-**Ex_14:** Crea una funció que mostre el nom de la població i la quantitat d’instituts associats, inclús les que tenen 0 instituts, ordenat pel nombre d’instituts.
-
-      ............................
-      Población: Xàtiva -- Institutos: 3
-      Población: Xella -- Institutos: 0
-      Población: Xeraco -- Institutos: 1
-      Población: Xeresa -- Institutos: 0
-      Población: Xert -- Institutos: 0
-      Población: Xilxes -- Institutos: 0
-      Población: Xirivella -- Institutos: 2
-      Población: Xixona -- Institutos: 1
-      Población: Xodos -- Institutos: 0
-      Población: Yátova -- Institutos: 0
-      Población: Yesa, la -- Institutos: 0
-      Población: Zarra -- Institutos: 0
-      Población: Zucaina -- Institutos: 0
-
-**Ex_15:**  Crea una funció que prenga el nom d’una comarca com a paràmetre i mostre la població i l’altura de la població amb l’altura més alta.
-
-      select altura_maxima_por_comarca('Alacantí');
-
-      Población: Torre de les Maçanes, la --  altura máxima: 788
-
-
-**Ex_16:** Crea una funció que mostre el nom i l’altura de les poblacions que tenen alçades superiors a la mitjana.
-
-      Población: Ademuz --  altura: 660
-      Población: Agost --  altura: 376
-      Población: Agres --  altura: 722
-      Población: Agullent --  altura: 360
-      Población: Aigües --  altura: 341
-      Población: Aín --  altura: 498
-      Población: Albaida --  altura: 315
-      Población: Albocàsser --  altura: 538
-      Población: Alborache --  altura: 320
-
-**Ex_17:** Crea una funció que prenga dos noms de províncies com a paràmetres i retorne la diferència absoluta de població entre totes dues províncies.
-
-      select diferencia_poblacion_entre_provincias('València', 'Alacant');
-
-      RETURN: 680.460
-
-**Ex_18:** Crea una funció que mostre el nom de les poblacions que no tenen instituts associats en la taula instituts, ordenat per població.
-
-      Población: Ador
-      Población: Agres
-      Población: Agullent
-      Población: Aielo de Rugat
-      Población: Aigües
-      Población: Aín
-      Población: Albalat dels Sorells
-      Población: Albalat dels Tarongers
-      Población: Albocàsser
-      Población: Alborache
-      Población: Albuixech
-      Población: Alcalalí
-
-**Ex_19:** Crea una funció que mostre el nom de les poblacions que tenen una població per davall de la mitjana.
-      
-      Promedio= 9234.0295
-
-      Población: Ademuz habitantes: 1179
-      Población: Ador habitantes: 1411
-      Población: Agost habitantes: 4752
-      Población: Agres habitantes: 583
-      Población: Agullent habitantes: 2435
-      Población: Aielo de Malferit habitantes: 4657
-      Población: Aielo de Rugat habitantes: 166
-      Población: Aigües habitantes: 984
-      Población: Aín habitantes: 129
-      Población: Albaida habitantes: 6031
-
-
-**Ex_20:** Crea una funció que, donat el nom d’una població i d’una comarca, ens permeta establir la llengua per a eixa població.
-
-      SELECT SET_LLENGUA('Almudaina','Comtat','V');
-
-      RETURN: void
-
-**Ex_21:** Crea una funció anomenada Densitat_centres que, donat el nom d’una comarca, ens retorne la quantitat de centres que té per unitat de superfície.
-
-      SELECT DENSIDAD_CENTRES('Plana Alta');
-
-      RETURN: 0.0219
-
-**Ex_22:** La mateixa funció de l’exercici anterior però utilitzant un cursor explícit.
-
-
-**Ex_23:** Crea una funció, utilitzant almenys un cursor explícit, anomenada ALTURA_MITJA, que ens permeta obtindre l’altura mitjana a què estan els centres en funció de la comarca i de la llengua de la població (aquests seran els paràmetres d’entrada).
-
-
-      SELECT ALTURA_MITJA ('Comtat'.'v');
-
-      RETURN: 455
-
-
-**Ex_24:** Crea una funció, utilitzant cursors, anomenada POBLACIONS_GRANS, que donat el nom d’una comarca ens retorne els noms de les poblacions de la comarca que tenen una població superior en un 50% a la mitjana de població de la província.
-
-
-      
-![](T7_e13.png)
-      
-
-**Ex_25:** Crea una funció, utilitzant cursors, anomenada CENTRES_DUO, que donat el nom d’una comarca ens retorne la quantitat total de centres de les dues poblacions amb un major nombre d’habitants.
-
-
-![](T7_e14.png)
-
-**Ex_26:** Crea una funció anomenada INTRODUCIR_INSTITUTO(varchar, varchar, varchar, varchar, numeric, numeric), que accepte els paràmetres indicats, un per cada camp de la taula INSTITUTS, i que comprove:
-
-- Que el primer paràmetre, el codi de l’institut, tinga exactament 8 caràcters i que comence per 03, 12 o 46 (els codis de província).
-- Que el codi postal estiga entre 3001 i 3999, 12001 i 12999 o 46001 i 46999. Observa que cod_m no farà falta comprovar-lo, ja que és clau externa i apareixeria un error si no fora un codi de municipi existent.
-
 
 ## **Trigger**{.azul}
 
-**Ex_27** - Crear un trigger anomenat **TR_ALT_POS** que controle que l'altura
+**Ex_12** - Crear un trigger anomenat **TR_ALT_POS** que controle que l'altura
 d'una nova població siga estrictament positiva. La funció en la qual es basa
 es pot anomenar **ALT_POS**.
 
-**Ex_28** - Modificar l'anterior per a que ho controle també quan es tracta d'una
+**Ex_13** - Modificar l'anterior per a que ho controle també quan es tracta d'una
 modificació.
 
-**Ex_29** - Crear un trigger anomenat **TR_EXT_0_1000** que controle que l'extensió
+**Ex_14** - Crear un trigger anomenat **TR_EXT_0_1000** que controle que l'extensió
 d'un municipi (població) estiga obligatòriament entre 0 i 1000, i ha de ser
 sempre, tant si s'insereix una nova població com si es modifica. Però en
 aquesta ocasió, en compte de traure un error, el que farem serà modificar
@@ -228,7 +84,7 @@ li posarem 0. Ho aconseguirem modificant **NEW.extensio** , i com la funció
 del trigger torna sempre NEW, doncs agafarà el nou valor. Anomeneu a la funció
 **EXT_0_1000**.
 
-**Ex_30** - **VOLUNTARI**. En la taula POBLACIONS3 tenim controlat que la latitud
+**Ex_15** - **VOLUNTARI**. En la taula POBLACIONS3 tenim controlat que la latitud
 introduïda siga correcta per mig del tipus lat, però no en la taula
 POBLACIONS, on és de tipus VARCHAR(50) i per tant es podria introduir una
 latitud incorrecta molt fàcilment. 
@@ -242,37 +98,6 @@ Crea un trigger que controle que quan s'introdueix o es modifica la **latitud** 
   * El caràcter 9 ha de ser **"**
   * El caràcter 10 ha de ser **N** o **S**
   * Si no s'acompleix alguna de les restriccions anteriors, ha d'eixir un error dient que la latitud ha d'estar entre 00º00'00"N i 90º00'00"N , o entre 00º00'00"S i 90º00'00"S
-
-**Ex_31:** Crea un trigger que, després d’una inserció, actualitze automàticament la quantitat total d’habitants en la taula provincies cada vegada que s’inserix una nova població en la taula poblacions.
-
-
-**Ex_32:** Crea un trigger que evite l’actualització del nom d’una població en la taula poblacions3 si existeix la comarca.
-
-
-**Ex_33:** Crea un trigger que evite la inserció d’un nou institut en la taula instituts si el codi de la població associada no existeix en la taula poblacions.
-
-
-**Ex_34:** Crea un trigger, anomenat MOD_LLEN, que ens avise quan una població canvia de llengua majoritària. 
-
-![](T7_t4.png)
-
-**Ex_35:** Crea un trigger per a portar una auditoria de la taula INSTITUTS per a controlar totes les modificacions que es fan en la taula. Per a això, per cada operació feta introduirem una fila en la taula AUDIT_INSTITUT (crear-la prèviament si no existeix) amb la informació següent:
-
-- num_a: és la clau principal de la taula, que serà un autonumèric (SERIAL).
-- operacio: contindrà el tipus d’operació realitzada en la taula INSTITUTS, que podrà ser: INSERT, DELETE o UPDATE.
-- codi_institut: codi de l’institut afectat per l’operació.
-- usuari: usuari que ha realitzat l’operació; es pot obtindre amb current_user. Podríem pensar que sempre serà el mateix usuari que fa l’operació, però en realitat la pot fer qualsevol usuari que tinga permís d’accés a la Base de Dades.
-- data_op: data-hora (timestamp) de l’actualització; es pot obtindre amb la funció now().
-
-![](T7_t5.png)
-
-En la imatge s’observa com s’han fet 3 actualitzacions des del moment de creació del trigger, l’última d’elles realitzada per l’usuari postgres.
-
-**Ex_36:** Crea un trigger que registre automàticament en una taula d’auditoria cada vegada que s’actualitza la població en la taula poblacions, però només si la població augmenta en més d’un 10 %. En la taula es guardarà el valor de la població abans de ser actualitzada. Crear prèviament la taula audit_poblacions, si no existeix, amb la informació següent:
-
-- cod_m: codi de població
-- data: data de la modificació
-- poblacio_anterior: població abans de l’actualització.
 
 
 <!--
