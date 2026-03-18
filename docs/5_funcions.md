@@ -223,6 +223,71 @@ obligatòriament la funció **MAX2**
 **Ex_6** - (**Voluntari**) Fes la funció **LAT_A_TEXT** , tenint en compte que ha
 de quedar com en la taula **POBLACIONS**. Segurament la dificultat més gran
 serà aconseguir que apareguen les cometes després dels minuts i dels segons.
+
+``
+```
+
+**Ejemplo** :  Veamos el mismo ejemplo de la función `deu()`, que mostraba por pantalla los números del 1 al 10 y no devolvía nada (`RETURN void`). Para este ejemplo en concreto, también podríamos haber utilizado un `PROCEDURE`.  
+
+```sql
+CREATE OR REPLACE PROCEDURE deu()
+LANGUAGE plpgsql
+AS $$
+BEGIN
+   FOR i IN 1..10 LOOP
+        RAISE NOTICE '%',i;
+    END LOOP;
+END; $$;
+``
+```
+
+**▶ Ejecución**
+
+Ahora, al ser procedimiento debemos utilizar `CALL` y no `SELECT`:
+
+```sql
+CALL deu();
+``
+```
+
+#### Procedimientos con control transaccional
+
+Uno de los usos principales de los **`PROCEDURE`** en PostgreSQL es el manejo de transacciones.
+A diferencia de las funciones (`FUNCTION`), los procedimientos permiten utilizar las sentencias `COMMIT` y `ROLLBACK`, lo cual es imprescindible cuando se realizan operaciones DML como `INSERT, UPDATE o DELETE`.
+Las funciones no permiten control explícito de transacciones, por lo que no pueden deshacer ni confirmar cambios dentro de su ejecución. Por eso, cuando es necesario procesar datos y decidir si confirmar o revertir los cambios, se debe utilizar un `PROCEDURE`.
+
+Veamos un ejemplo de un procedimiento que actualice la provincia de una comarca y use control transaccional (`COMMIT` / `ROLLBACK`) .
+
+```sql
+CREATE PROCEDURE actualizar_provincia_comarca(p_nom_c VARCHAR, p_nueva_prov VARCHAR)
+LANGUAGE plpgsql
+AS $$
+BEGIN
+  UPDATE comarques
+  SET provincia = p_nueva_prov
+  WHERE nom_c = p_nom_c;
+
+  IF NOT FOUND THEN
+    RAISE NOTICE 'No existe la comarca con nombre "%"', p_nom_c;
+    ROLLBACK;
+    RETURN;
+  END IF;
+
+  RAISE NOTICE 'Provincia de la comarca "%" actualizada a "%".',
+               p_nom_c, p_nueva_prov;
+  COMMIT;
+END;
+$$;
+``
+```
+
+**▶ Ejecución**
+
+```sql
+CALL actualizar_provincia_comarca('Baix Maestrat', 'Castellón')
+``
+
+
 Llicenciat sota la  [Llicència Creative Commons Reconeixement NoComercial
 CompartirIgual 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/)
 
