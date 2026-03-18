@@ -219,13 +219,13 @@ serà aconseguir que apareguen les cometes després dels minuts i dels segons.
 
 
 
-## 5.2.  Procedimientos (PROCEDURES) 
+## NOTA: Uso de Procedimientos (PROCEDURES) 
 
 Los procedimientos almacenados (stored procedures) son bloques de código que se guardan en la base de datos y que permiten ejecutar una secuencia de instrucciones SQL. Fueron incorporados en PostgreSQL a partir de la versión 11.
 
 A diferencia de las funciones, los procedimientos:
 
-- ❌ **No devuelven valores**.
+ ❌ **No devuelven valores**.
 
   ✔ **Se ejecutan con `CALL`**, no con `SELECT`.
 
@@ -233,11 +233,7 @@ A diferencia de las funciones, los procedimientos:
 
   ✔ Son ideales para **procesos complejos**, **tareas administrativas** o **operaciones en lote**.
 
-  
 
-> 📌 Los procedimientos están disponibles en PostgreSQL desde la versión 11.
-
----
 
 ### Sintaxis básica
 
@@ -249,15 +245,11 @@ BEGIN
     -- Código SQL / PLpgSQL
 END;
 $$;
-``
-
 ```
-
 **▶ Ejecución**
 
 ```sql
 CALL nombre_procedimiento(valor1, valor2);
-``
 ```
 
 **Ejemplo** :  Veamos el mismo ejemplo de la función `deu()`, que mostraba por pantalla los números del 1 al 10 y no devolvía nada (`RETURN void`). Para este ejemplo en concreto, también podríamos haber utilizado un `PROCEDURE`.  
@@ -271,7 +263,6 @@ BEGIN
         RAISE NOTICE '%',i;
     END LOOP;
 END; $$;
-``
 ```
 
 **▶ Ejecución**
@@ -280,7 +271,6 @@ Ahora, al ser procedimiento debemos utilizar `CALL` y no `SELECT`:
 
 ```sql
 CALL deu();
-``
 ```
 
 #### Procedimientos con control transaccional
@@ -311,7 +301,6 @@ BEGIN
   COMMIT;
 END;
 $$;
-``
 ```
 
 **▶ Ejecución**
