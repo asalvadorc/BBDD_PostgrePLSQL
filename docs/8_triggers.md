@@ -321,14 +321,14 @@ d'usuari, que són els que no són per implementar les claus externes.
 
 En la Base de Dades **geo_local** :  
   
-**Ex_27** - Crear un trigger anomenat **TR_ALT_POS** que controle que l'altura
+**Ex_12** - Crear un trigger anomenat **TR_ALT_POS** que controle que l'altura
 d'una nova població siga estrictament psitiva. La funció en la qual es basa
 es pot anomenar **ALT_POS**.  
   
-**Ex_28** - Modificar l'anterior per a que ho controle també quan es tracta d'una
+**Ex_13** - Modificar l'anterior per a que ho controle també quan es tracta d'una
 modificació.
 
-**Ex_29** - Crear un trigger anomenat **TR_EXT_0_1000** que controle que l'extensió
+**Ex_14** - Crear un trigger anomenat **TR_EXT_0_1000** que controle que l'extensió
 d'un municipi (població) estiga obligatòriament entre 0 i 1000, i ha de ser
 sempre, tant si s'insereix una nova població com si es modifica. Però en
 aquesta ocasió, en compte de traure un error, el que farem serà modificar
@@ -337,7 +337,7 @@ li posarem 0. Ho aconseguirem modificant NEW.extensio, i com la funció del
 trigger torna sempre NEW, doncs agafarà el nou valor. Anomeneu a la funció
 **EXT_0_1000**.
 
-**Ex_30** - **VOLUNTARI**. En la taula POBLACIONS3 tenim controlat que la latitud
+**Ex_15** - **VOLUNTARI**. En la taula POBLACIONS3 tenim controlat que la latitud
 introduïda siga correcta per mig del tipus lat, però no en la taula
 POBLACIONS, on és de tipus VARCHAR(50) i per tant es podria introduir una
 latitud incorrecta molt fàcilment. Crea un trigger que controle que quan
@@ -352,38 +352,6 @@ a això
   * El caràcter 9 ha de ser **"**
   * El caràcter 10 ha de ser **N** o **S**
   * Si no s'acompleix alguna de les restriccions anteriors, ha d'eixir un error dient que la latitud ha d'estar entre 00º00'00"N i 90º00'00"N , o entre 00º00'00"S i 90º00'00"S  
-
-
-**Ex_31:** Crea un trigger que, després d’una inserció, actualitze automàticament la quantitat total d’habitants en la taula provincies cada vegada que s’inserix una nova població en la taula poblacions.
-
-
-**Ex_32:** Crea un trigger que evite l’actualització del nom d’una població en la taula poblacions3 si existeix la comarca.
-
-
-**Ex_33:** Crea un trigger que evite la inserció d’un nou institut en la taula instituts si el codi de la població associada no existeix en la taula poblacions.
-
-
-**Ex_34:** Crea un trigger, anomenat MOD_LLEN, que ens avise quan una població canvia de llengua majoritària. 
-
-![](T7_t4.png)
-
-**Ex_35:** Crea un trigger per a portar una auditoria de la taula INSTITUTS per a controlar totes les modificacions que es fan en la taula. Per a això, per cada operació feta introduirem una fila en la taula AUDIT_INSTITUT (crear-la prèviament si no existeix) amb la informació següent:
-
-- num_a: és la clau principal de la taula, que serà un autonumèric (SERIAL).
-- operacio: contindrà el tipus d’operació realitzada en la taula INSTITUTS, que podrà ser: INSERT, DELETE o UPDATE.
-- codi_institut: codi de l’institut afectat per l’operació.
-- usuari: usuari que ha realitzat l’operació; es pot obtindre amb current_user. Podríem pensar que sempre serà el mateix usuari que fa l’operació, però en realitat la pot fer qualsevol usuari que tinga permís d’accés a la Base de Dades.
-- data_op: data-hora (timestamp) de l’actualització; es pot obtindre amb la funció now().
-
-![](T7_t5.png)
-
-En la imatge s’observa com s’han fet 3 actualitzacions des del moment de creació del trigger, l’última d’elles realitzada per l’usuari postgres.
-
-**Ex_36:** Crea un trigger que registre automàticament en una taula d’auditoria cada vegada que s’actualitza la població en la taula poblacions, però només si la població augmenta en més d’un 10 %. En la taula es guardarà el valor de la població abans de ser actualitzada. Crear prèviament la taula audit_poblacions, si no existeix, amb la informació següent:
-
-- cod_m: codi de població
-- data: data de la modificació
-- poblacio_anterior: població abans de l’actualització.
 
 
 Llicenciat sota la  [Llicència Creative Commons Reconeixement NoComercial
