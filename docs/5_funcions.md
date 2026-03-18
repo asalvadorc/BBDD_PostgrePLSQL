@@ -307,7 +307,7 @@ $$;
 
 ```sql
 CALL actualizar_provincia_comarca('Baix Maestrat', 'Castellón')
-``
+```
 
 
 
