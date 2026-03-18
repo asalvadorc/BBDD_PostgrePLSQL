@@ -224,6 +224,46 @@ obligatòriament la funció **MAX2**
 de quedar com en la taula **POBLACIONS**. Segurament la dificultat més gran
 serà aconseguir que apareguen les cometes després dels minuts i dels segons.
 
+
+
+## 5.2.  Procedimientos (PROCEDURES) 
+
+Los procedimientos almacenados (stored procedures) son bloques de código que se guardan en la base de datos y que permiten ejecutar una secuencia de instrucciones SQL. Fueron incorporados en PostgreSQL a partir de la versión 11.
+
+A diferencia de las funciones, los procedimientos:
+
+- ❌ **No devuelven valores**.
+
+  ✔ **Se ejecutan con `CALL`**, no con `SELECT`.
+
+  ✔ **Permiten manejar transacciones internas** (`COMMIT`, `ROLLBACK`).
+
+  ✔ Son ideales para **procesos complejos**, **tareas administrativas** o **operaciones en lote**.
+
+  
+
+> 📌 Los procedimientos están disponibles en PostgreSQL desde la versión 11.
+
+---
+
+### Sintaxis básica
+
+```sql
+CREATE PROCEDURE nombre_procedimiento(parámetros)
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    -- Código SQL / PLpgSQL
+END;
+$$;
+``
+
+```
+
+**▶ Ejecución**
+
+```sql
+CALL nombre_procedimiento(valor1, valor2);
 ``
 ```
 
@@ -286,6 +326,7 @@ $$;
 ```sql
 CALL actualizar_provincia_comarca('Baix Maestrat', 'Castellón')
 ``
+
 
 
 Llicenciat sota la  [Llicència Creative Commons Reconeixement NoComercial
