@@ -219,7 +219,7 @@ serà aconseguir que apareguen les cometes després dels minuts i dels segons.
 
 
 
-## NOTA: Uso de Procedimientos (PROCEDURES) 
+## NOTA: Uso de Procedimientos (PROCEDURE) 
 
 Los procedimientos almacenados (stored procedures) son bloques de código que se guardan en la base de datos y que permiten ejecutar una secuencia de instrucciones SQL. Fueron incorporados en PostgreSQL a partir de la versión 11.
 
