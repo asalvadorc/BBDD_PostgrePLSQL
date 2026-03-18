@@ -1,12 +1,5 @@
 # 5. Funcions
 
-En PL/pgSQL no hi ha procediments. Només hi ha funcions, encara que puguem
-declarar-les per a que no tornen cap valor (_**void**_).
-
-!!!note "Nota"
-    La diferència per tant entre un procediment i una funció és que la segona
-    torna un valor, mentre que el primer no. Però en PL/pgSQL només hi ha
-    funcions.
 
 La sintaxi general (i en principi per a qualsevol llenguatge) de la instrucció
 de creació de funcions és la següent:
