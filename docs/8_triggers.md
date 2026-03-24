@@ -214,7 +214,7 @@ i després s'incrementa o decrementa el nombre d'instituts de la província:
                 SET instituts = instituts - 1
                 WHERE provincia = aux;
         END IF;
-        RETURN NEW;
+        RETURN NULL;
     END; $cos$ 
     LANGUAGE plpgsql;
     
@@ -256,7 +256,7 @@ doncs calcular al final de totes elles (i no després de cadascuna).
         					FROM COMARQUES,POBLACIONS
         					WHERE COMARQUES.nom_c=POBLACIONS.nom_c and
         						provincia=PROVINCIES.provincia);
-    	RETURN NEW;
+    	RETURN NULL;
     END; $cos$
     LANGUAGE plpgsql;
     
