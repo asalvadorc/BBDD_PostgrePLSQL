@@ -15,7 +15,7 @@ La sintaxi de creació del _trigger_ és:
         {BEFORE | AFTER} {INSERT | DELETE | UPDATE} [OR {INSERT | DELETE |UPDATE} ...]  
         ON nom_taula  
         [FOR EACH {ROW | STATEMENT}]  
-        EXECUTE PROCEDURE nom_funció ([paràmetres]);
+        EXECUTE FUNCTION nom_funció ([paràmetres]);
 
 Lamentablement no tenim l’opció **OR REPLACE** , que ens permetria no haver
 d’esborrar el _trigger_ en cas de voler refer-lo (cosa prou normal). Per tant,
@@ -38,13 +38,13 @@ Suposem que volem activar un disparador sempre abans d’inserir sobre la taula
 **T1** , per a cada fila, per si la introducció no fóra correcta:
 
     CREATE TRIGGER trigger1 BEFORE INSERT ON T1 FOR EACH ROW  
-        EXECUTE PROCEDURE ...;
+        EXECUTE FUNCTION ...;
 
 I ara que volem activar un altre després d’esborrar un conjunt de files (per
 exemple per a actualitzar una altra taula):
 
     CREATE TRIGGER trigger2 AFTER DELETE ON T1 FOR EACH STATEMENT  
-        EXECUTE PROCEDURE ...;
+        EXECUTE FUNCTION ...;
 
 Anem a parlar ara de la funció que es crida quan es dispara el _trigger_. És
 una funció especial, escrita en qualsevol llenguatge definit, que com hem
@@ -163,7 +163,7 @@ impedir-ho.
     
     CREATE TRIGGER tr_val_50000 BEFORE UPDATE ON POBLACIONS
         FOR EACH ROW
-        EXECUTE PROCEDURE val_50000();
+        EXECUTE FUNCTION val_50000();
 
 Podríem comprovar el funcionament del trigger actualitzant alguna fila de la
 taula POBLACIONS:
@@ -221,7 +221,7 @@ i després s'incrementa o decrementa el nombre d'instituts de la província:
     
     CREATE TRIGGER tr_act_inst AFTER INSERT OR DELETE ON INSTITUTS
         FOR EACH ROW
-        EXECUTE PROCEDURE act_inst();
+        EXECUTE FUNCTION act_inst();
 
 Podrem comprovar-ho, per exemple, introduint un nou registre. Abans de
 l'actualització, el contingut de la taula PROVINCIES és:
@@ -263,7 +263,7 @@ doncs calcular al final de totes elles (i no després de cadascuna).
     
     CREATE TRIGGER tr_act_pobl AFTER INSERT OR DELETE OR UPDATE
     	ON POBLACIONS FOR EACH STATEMENT
-    	EXECUTE PROCEDURE act_pobl();
+    	EXECUTE FUNCTION act_pobl();
 
 Per a poder comprovar el resultat del trigger anem a fer una operació
 d'actualització. Per exemple anem a incrementar cada població de la comarca de
